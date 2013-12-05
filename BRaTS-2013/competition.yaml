@@ -4,7 +4,7 @@ title: BRaTS 2013 - Multimodal Brain Tumor Segmentation Challenge
 description: In order to gauge the current state-of-the-art in automated brain tumor segmentation and compare between different methods we are organizing a Multimodal Brain Tumor Segmentation (BRATS) challenge in conjunction with the MICCAI 2013 conference.
 image: logo.jpg
 has_registration: True
-end_date: 2013-10-2
+end_date:
 html: 
     overview: overview.html
     evaluation: evaluation.html
@@ -18,11 +18,6 @@ phases:
         max_submissions: 100
         scoring_program: program.zip
         reference_data: reference.zip
-        datasets: 
-            1:
-                name: Test Data
-                url: http://test.com/foo
-                description: Test Data is retrieved from the Virtual Skeleton Database.
     2:
         phasenumber: 2
         label: Training
@@ -33,7 +28,7 @@ phases:
         datasets:
             1:
                 name: Training Data
-                url: http://test.com/foo
+                url: http://www2.imm.dtu.dk/projects/BRATS2012/data.html
                 description: Training Data is retrieved from the Virtual Skeleton Database. More details can be found <a href="http://www2.imm.dtu.dk/projects/BRATS2012/data.html">here.</a>
     3:
         phasenumber: 3
@@ -45,7 +40,7 @@ phases:
         datasets: 
             1:
                 name: Challenge Data
-                url: http://test.com/foo
+                url: http://www2.imm.dtu.dk/projects/BRATS2012/data.html
                 description: Challenge data is retrieved from the Virtual Skeleton Database.
 leaderboard:
     leaderboards:
@@ -74,140 +69,181 @@ leaderboard:
             column_group: *DICE
             label: Complete
             rank: 1
+            numeric_format: 3
         PatientDiceCore: 
             leaderboard: *PD
             column_group: *DICE
             label: Core
             rank: 2
+            numeric_format: 3
         PatientDiceEnhancing:
             leaderboard: *PD
             column_group: *DICE
             label: Enhancing
             rank: 3
-        PSENSCOMPLETE: 
+            numeric_format: 3
+        PatientSensitivityComplete: 
             leaderboard: *PD
             column_group: *SENS
             label: Complete
             rank: 1
+            numeric_format: 3
         PatientSensitivityCore: 
             leaderboard: *PD
             column_group: *SENS
             label: Core
             rank: 2
+            numeric_format: 3
         PatientSensitivityEnhancing:
             leaderboard: *PD
             column_group: *SENS
             label: Enhancing
             rank: 3
-        PatientSensitivityComplete: 
+            numeric_format: 3
+        PatientSpecificityComplete: 
             leaderboard: *PD
-            column_group: *SPEC
+            column_group: *SENS
             label: Complete
             rank: 1
+            numeric_format: 3
         PatientSpecificityCore: 
             leaderboard: *PD
             column_group: *SPEC
             label: Core
             rank: 2
+            numeric_format: 3
         PatientSpecificityEnhancing:
             leaderboard: *PD
             column_group: *SPEC
             label: Enhancing
             rank: 3
+            numeric_format: 3
         PatientHausdorffComplete: 
             leaderboard: *PD
             column_group: *HAUS
             label: Complete
             rank: 1
+            numeric_format: 3
         PatientHausdorffCore: 
             leaderboard: *PD
             column_group: *HAUS
             label: Core
             rank: 2
+            numeric_format: 3
         PatientHausdorffEnhancing:
             leaderboard: *PD
             column_group: *HAUS
             label: Enhancing
             rank: 3
+            numeric_format: 3
         PatientKappa:
             leaderboard: *PD
             label: Kappa
             rank: 1
+            numeric_format: 3
         PatientRankComplete: 
             leaderboard: *PD
             column_group: *RANK
             label: Complete
             rank: 1
+            numeric_format: 3
+            computed:
+              operation: Avg
+              fields: PatientDiceComplete, PatientSensitivityComplete, PatientSpecificityComplete
         PatientRankCore: 
             leaderboard: *PD
             column_group: *RANK
             label: Core
             rank: 2
+            numeric_format: 3
+            computed:
+              operation: Avg
+              fields: PatientDiceCore, PatientSensitivityCore, PatientSpecificityCore
         PatientRankEnhancing:
             leaderboard: *PD
             column_group: *RANK
             label: Enhancing
             rank: 3
+            numeric_format: 3
+            computed:
+              operation: Avg
+              fields: PatientDiceEnhancing, PatientSensitivityEnhancing, PatientSpecificityEnhancing
         PatientRankOverall:
             leaderboard: *PD
             label: Overall Rank
             rank: 1
+            numeric_format: 3
+            computed:
+              operation: Avg
+              fields: PatientDiceComplete, PatientSensitivityComplete, PatientSpecificityComplete, PatientDiceCore, PatientSensitivityCore, PatientSpecificityCore, PatientDiceEnhancing, PatientSensitivityEnhancing, PatientSpecificityEnhancing
 
         SyntheticDiceComplete: 
             leaderboard: *SD
             column_group: *DICE
             label: Complete
             rank: 1
+            numeric_format: 3
         SyntheticDiceCore: 
             leaderboard: *SD
             column_group: *DICE
             label: Core
             rank: 2
+            numeric_format: 3
         SyntheticSensitivityComplete: 
             leaderboard: *SD
             column_group: *SENS
             label: Complete
             rank: 1
+            numeric_format: 3
         SyntheticSensitivityCore: 
             leaderboard: *SD
             column_group: *SENS
             label: Core
             rank: 2
+            numeric_format: 3
         SyntheticSpecificityComplete: 
             leaderboard: *SD
             column_group: *SPEC
             label: Complete
             rank: 1
+            numeric_format: 3
         SyntheticSpecificityCore: 
             leaderboard: *SD
             column_group: *SPEC
             label: Core
             rank: 2
+            numeric_format: 3
         SyntheticHausdorffComplete: 
             leaderboard: *SD
             column_group: *HAUS
             label: Complete
             rank: 1
+            numeric_format: 3
         SyntheticHausdorffCore: 
             leaderboard: *SD
             column_group: *HAUS
             label: Core
             rank: 2
+            numeric_format: 3
         SyntheticKappa:
             leaderboard: *SD
             label: Kappa
             rank: 1
+            numeric_format: 3
         SyntheticRankComplete: 
             leaderboard: *SD
             column_group: *RANK
             label: Complete
             rank: 1
+            numeric_format: 3
         SyntheticRankCore: 
             leaderboard: *SD
             column_group: *RANK
             label: Core
             rank: 2
+            numeric_format: 3
         SyntheticRankOverall:
             leaderboard: *SD
             label: Overall Rank
             rank: 1
+            numeric_format: 3

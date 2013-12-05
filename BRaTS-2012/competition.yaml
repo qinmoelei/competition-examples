@@ -18,11 +18,6 @@ phases:
         max_submissions: 100
         scoring_program: program.zip
         reference_data: reference.zip
-        datasets: 
-            1:
-                name: Test Data
-                url: http://test.com/foo
-                description: Test Data is retrieved from the Virtual Skeleton Database.
     2:
         phasenumber: 2
         label: Training
@@ -30,11 +25,6 @@ phases:
         max_submissions: 3
         scoring_program: program.zip
         reference_data: reference.zip
-        datasets:
-            1:
-                name: Training Data
-                url: http://test.com/foo
-                description: Training Data is retrieved from the Virtual Skeleton Database. More details can be found <a href="http://www2.imm.dtu.dk/projects/BRATS2012/data.html">here.</a>
     3:
         phasenumber: 3
         label: Challenge
@@ -42,11 +32,6 @@ phases:
         max_submissions: 3
         scoring_program: program.zip
         reference_data: reference.zip
-        datasets: 
-            1:
-                name: Challenge Data
-                url: http://test.com/foo
-                description: Challenge data is retrieved from the Virtual Skeleton Database.
 leaderboard:
     leaderboards:
         Patient: &PD
