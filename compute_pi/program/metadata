@@ -1,2 +1,2 @@
-command: python $program/evaluate.exe $input $output
+command: python $program/evaluate.py $input $output
 description: Example competition evaluation program.
