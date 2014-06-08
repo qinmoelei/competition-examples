@@ -15,11 +15,6 @@ phases:
         max_submissions: 100
         scoring_program: scoring_program.zip
         reference_data: reference_data.zip
-        #datasets:
-        #    1:
-        #        name: Data 1
-        #        url: http://spreadsheets.google.com/pub?key=pyj6tScZqmEfbZyl0qjbiRQ&output=xls
-        #        description: Example Dataset
 leaderboard:
     leaderboards:
         RESULTS: &RESULTS
