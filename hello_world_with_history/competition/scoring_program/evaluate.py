@@ -8,9 +8,14 @@ output_dir = sys.argv[2]
 
 submit_dir = os.path.join(input_dir, 'res')
 truth_dir = os.path.join(input_dir, 'ref')
+history_dir = os.path.join(input_dir, 'history')
 
 if not os.path.isdir(submit_dir):
     print "%s doesn't exist" % submit_dir
+
+if os.path.isdir(history_dir):
+    #
+    pass
 
 if os.path.isdir(submit_dir) and os.path.isdir(truth_dir):
     if not os.path.exists(output_dir):
