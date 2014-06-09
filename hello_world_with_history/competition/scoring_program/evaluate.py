@@ -14,8 +14,14 @@ if not os.path.isdir(submit_dir):
     print "%s doesn't exist" % submit_dir
 
 if os.path.isdir(history_dir):
-    #
-    pass
+    # read all phases
+    phases = {}
+
+    for folder, sub_folders, files in os.walk(history_dir):
+        # phases[1] = [1, 2, 3] -- phase 1 with 3 submissions #1, 2, 3
+        phases[folder] = sub_folders
+    
+    print phases
 
 if os.path.isdir(submit_dir) and os.path.isdir(truth_dir):
     if not os.path.exists(output_dir):
