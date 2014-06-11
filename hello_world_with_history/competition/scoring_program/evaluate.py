@@ -56,7 +56,8 @@ if os.path.isdir(history_dir):
         audit_score += float(first_line.split(":")[1])
 
     audit_submission_count = len(score_files)
-    audit_score = audit_score / audit_submission_count
+    if audit_submission_count > 0:
+        audit_score = audit_score / audit_submission_count
 
 if os.path.isdir(submit_dir) and os.path.isdir(truth_dir):
     if not os.path.exists(output_dir):
