@@ -16,7 +16,12 @@ if not os.path.isdir(submit_dir):
     print "%s doesn't exist" % submit_dir
 
 if os.path.isdir(history_dir):
-    # read all phases and their submissions
+    # read all phases and their submissions:
+    # input/history/<phase #>/<submission #>/
+    # 
+    # Example:
+    # input/history/000/001/ # phase #0, submission #1
+    # input/history/000/002/ # phase #0, submission #2
     phases = {}
 
     for phase_file in os.listdir(history_dir):
@@ -27,6 +32,10 @@ if os.path.isdir(history_dir):
                     phases[phase_file].append(submission_file)
 
     # create list of score files
+    # 
+    # Example:
+    # input/history/000/001/output/scores.txt # submission #1 scores
+    # input/history/000/002/output/scores.txt # submission #2 scores
     score_files = []
 
     for phase, submissions in phases.items():
@@ -34,12 +43,17 @@ if os.path.isdir(history_dir):
             score_files.append(os.path.join(history_dir, phase, submission, 'output', 'scores.txt'))
 
     # read and save score files
+    #
+    # Example scores.txt:
+    #   correct:1.0
+    #   audit_score:0.5
     scores = []
     audit_score = 0
 
     for score_file in score_files:
         file_data = open(score_file).read()
-        audit_score += float(file_data.split(":")[1])
+        first_line = file_data.split("\n")[0]
+        audit_score += float(first_line.split(":")[1])
 
     audit_submission_count = len(score_files)
     audit_score = audit_score / audit_submission_count
@@ -68,5 +82,7 @@ if os.path.isdir(submit_dir) and os.path.isdir(truth_dir):
 
     output_file.write("correct:%s\n" % correct)
     output_file.write("audit_score:%s\n" % audit_score)
+
+    print "audit_score = %s" % audit_score
 
     output_file.close()
