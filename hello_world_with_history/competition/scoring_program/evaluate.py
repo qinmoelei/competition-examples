@@ -9,6 +9,8 @@ submit_dir = os.path.join(input_dir, 'res')
 truth_dir = os.path.join(input_dir, 'ref')
 history_dir = os.path.join(input_dir, 'history')
 
+private_dir = os.path.join(output_dir, 'private')
+
 audit_score = None
 audit_submission_count = 0
 
@@ -87,3 +89,11 @@ if os.path.isdir(submit_dir) and os.path.isdir(truth_dir):
     print "audit_score = %s" % audit_score
 
     output_file.close()
+
+# Saving private info
+if not os.path.exists(private_dir):
+    os.makedirs(private_dir)
+
+private_file = open(os.path.join(private_dir, 'priv.txt'), 'wb')
+private_file.write("test")
+private_file.close()
