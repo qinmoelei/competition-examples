@@ -20,7 +20,7 @@ if not os.path.isdir(submit_dir):
 if os.path.isdir(history_dir):
     # read all phases and their submissions:
     # input/history/<phase #>/<submission #>/
-    # 
+    #
     # Example:
     # input/history/000/001/ # phase #0, submission #1
     # input/history/000/002/ # phase #0, submission #2
@@ -34,7 +34,7 @@ if os.path.isdir(history_dir):
                     phases[phase_file].append(submission_file)
 
     # create list of score files
-    # 
+    #
     # Example:
     # input/history/000/001/output/scores.txt # submission #1 scores
     # input/history/000/002/output/scores.txt # submission #2 scores
@@ -86,8 +86,6 @@ if os.path.isdir(submit_dir) and os.path.isdir(truth_dir):
     output_file.write("correct:%s\n" % correct)
     output_file.write("audit_score:%s\n" % audit_score)
 
-    print "audit_score = %s" % audit_score
-
     output_file.close()
 
 # Saving private info
@@ -95,5 +93,5 @@ if not os.path.exists(private_dir):
     os.makedirs(private_dir)
 
 private_file = open(os.path.join(private_dir, 'priv.txt'), 'wb')
-private_file.write("test")
+private_file.write("audit_score = %s" % audit_score)
 private_file.close()
