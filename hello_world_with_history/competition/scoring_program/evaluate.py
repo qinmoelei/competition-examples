@@ -42,7 +42,9 @@ if os.path.isdir(history_dir):
 
     for phase, submissions in phases.items():
         for submission in submissions:
-            score_files.append(os.path.join(history_dir, phase, submission, 'output', 'scores.txt'))
+            file_name = os.path.join(history_dir, phase, submission, 'output', 'scores.txt')
+            if os.path.exists(file_name):
+                score_files.append(file_name)
 
     # read and save score files
     #
