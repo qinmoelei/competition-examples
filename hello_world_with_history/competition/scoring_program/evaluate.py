@@ -26,12 +26,12 @@ if os.path.isdir(history_dir):
     # input/history/000/002/ # phase #0, submission #2
     phases = {}
 
-    for phase_file in os.listdir(history_dir):
-        if os.path.isdir(os.path.join(history_dir, phase_file)):
-            phases[phase_file] = []
+    for phase_folder in os.listdir(history_dir):
+        if os.path.isdir(os.path.join(history_dir, phase_folder)):
+            phases[phase_folder] = []
             for submission_file in os.listdir(os.path.join(history_dir, phase_file)):
-                if os.path.isdir(os.path.join(history_dir, phase_file, submission_file)):
-                    phases[phase_file].append(submission_file)
+                if os.path.isdir(os.path.join(history_dir, phase_folder, submission_file)):
+                    phases[phase_folder].append(submission_file)
 
     # create list of score files
     #
