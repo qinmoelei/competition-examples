@@ -21,8 +21,8 @@ leaderboard:
             label: Results
             rank: 1
     columns:
-        Difference:
+        correct:
             leaderboard: *RESULTS
-            label: Difference
+            label: correct
             rank: 1
-            numeric_format: 6
+            numeric_format: 1
