@@ -3,8 +3,15 @@ competition-examples
 
 Example competitions for the CodaLab project.
 
-compute_pi - a competition where participants submit a value of pi to see how close they can get. 
-             This is a fully working (but trivial) competition example with a scoring program and gold answer.
+basic-competition-bundles/
+
+  hello world - the simplest possible example of result submission competition.
+  compute_pi - a simple example of competition with code submission.
              
-BRaTS 2012 - a competition for Brain Tumor Segmentation run as part of the MICCAI workshop.
-             This is not a fully working competition because the gold/reference data is not publicly available. It is however useful for others to see how a complex competition can be constructed and hosted on CodaLab.
+developers/
+  
+  more advanced examples that developer and advanced users can check into.
+
+chalab-examples/
+  
+  examples that can be used to test the ChaLab wizard.
