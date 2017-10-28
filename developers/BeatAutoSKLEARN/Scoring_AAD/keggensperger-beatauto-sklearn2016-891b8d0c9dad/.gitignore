@@ -1,0 +1,6 @@
+*.pyc
+*~
+*__MACOSX*
+*.zip
+*.DS_Store*
+*autosk_scoring_program/res/*

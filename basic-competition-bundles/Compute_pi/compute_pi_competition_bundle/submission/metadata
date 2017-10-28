@@ -1,0 +1,2 @@
+command: python $program/compute_pi.py $input $output
+description: Example competition code submission.

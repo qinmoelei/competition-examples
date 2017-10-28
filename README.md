@@ -1,18 +1,18 @@
 competition-examples
 ====================
 
-Example competitions for the CodaLab project.
+This repo contains competition bundle examples for Codalab [Competitions v1.5](http://competitions.codalab.org)
+
 
 * basic-competition-bundles/
 
-hello world - the simplest possible example of result submission competition.
-
-compute_pi - a simple example of competition with code submission.
+Examples of competitions directed to beginning organizers.
              
-* developers/
-  
-more advanced examples that developer and advanced users can check into.
 
 * chalab-examples/
   
-examples that can be used to test the ChaLab wizard.
+Examples that can be used to test the ChaLab wizard.
+
+* developers/
+
+Older (v1) examples that developer and advanced users can check into and/or update.
