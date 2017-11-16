@@ -149,6 +149,9 @@ The submission is exected in parallel to the ingestion program. The submission o
 description: Provides prediction model to be executed by the ingestion program
 The submission is passed on the the ingestion program that does whatever it wants with it.
 
+Drill #15: Organizer docker
+In the YAML file, you can specify your own docker, e.g.
+competition_docker_image: continuumio/anaconda:latest
 
 
 
