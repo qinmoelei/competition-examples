@@ -77,6 +77,7 @@ if __name__ == "__main__":
     mkdir(score_dir)
     score_file = open(os.path.join(score_dir, 'scores.txt'), 'wb')
     html_file = open(os.path.join(score_dir, 'scores.html'), 'wb')
+    html_file.write("<pre>\n")
 
     # Get the metric
     metric_name, scoring_function = _load_scoring_function()
@@ -92,7 +93,7 @@ if __name__ == "__main__":
         # Extract the dataset name from the file name
         basename = solution_file[-solution_file[::-1].index(filesep):-solution_file[::-1].index('.') - 1]
 
-        if 1==1: #try:
+        try:
             # Get the last prediction from the res subdirectory (must end with '.predict')
             predict_file = ls(os.path.join(prediction_dir, basename + '*.predict'))[-1]
             if (predict_file == []): raise IOError('Missing prediction file {}'.format(basename))
@@ -103,21 +104,21 @@ if __name__ == "__main__":
             if (solution.shape != prediction.shape): raise ValueError(
                 "Bad prediction shape {}".format(prediction.shape))
 
-            if 1==1: #try:
+            try:
                 # Compute the score prescribed by the metric file 
                 score = scoring_function(solution, prediction)
                 print(
                     "======= Set %d" % set_num + " (" + predict_name.capitalize() + "): " + metric_name + "(" + score_name + ")=%0.12f =======" % score)
                 html_file.write(
                     "======= Set %d" % set_num + " (" + predict_name.capitalize() + "): " + metric_name + "(" + score_name + ")=%0.12f =======\n" % score)
-            else: #except:
+            except:
                 raise Exception('Error in calculation of the specific score of the task')
 
             if debug_mode > 0:
                 scores = compute_all_scores(solution, prediction)
                 write_scores(html_file, scores)
 
-        else: #except Exception as inst:
+        except Exception as inst:
             score = missing_score
             print(
                 "======= Set %d" % set_num + " (" + basename.capitalize() + "): " + metric_name + "(" + score_name + ")=ERROR =======")

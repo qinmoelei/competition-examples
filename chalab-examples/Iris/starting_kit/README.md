@@ -12,7 +12,7 @@ Usage:
 (1) If you are a challenge participant:
 
 - The file README.ipynb contains step-by-step instructions on how to create a sample submission for the Iris challenge. At the prompt type:
-jupyter-notebook README.ipynb
+  `jupyter-notebook README.ipynb`
 
 - modify sample_code_submission to provide a better model
 
@@ -30,10 +30,12 @@ then zip the contents of sample_result_submission (without the directory).
 
 - sample_data is a small data subset carved out the challenge TRAINING data, for practice purposes only (do not compromise real validation or test data)
 
-- the following programs run properly:
+- the following programs run properly (you can substitute sample_xxx_data with any of the 4 kinds of sample data provided):
 
-    `python ingestion_program/ingestion.py sample_data sample_result_submission ingestion_program sample_code_submission`
+    `python ingestion_program/ingestion.py sample_xxx_data sample_result_submission ingestion_program sample_code_submission`
 
-    `python scoring_program/score.py sample_data sample_result_submission scoring_output`
+    `python scoring_program/score.py sample_xxx_data sample_result_submission scoring_output`
+
+- IMPORTANT: if you switch between sample data, remove iris_model.pickle from sample_code_submission, otherwise you'll have inconsistent data and models.
 
 - the metric identified by metric.txt in the utilities directory is the metric used both to compute performances in README.ipynb and for the challenge.
