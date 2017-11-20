@@ -14,15 +14,17 @@ Usage:
 - The file README.ipynb contains step-by-step instructions on how to create a sample submission for the Iris challenge. At the prompt type:
   `jupyter-notebook README.ipynb`
 
-- modify sample_code_submission to provide a better model
+- Download the public_data and replace the sample_data with it.
 
-- zip the contents of sample_code_submission (without the directory, but with metadata), or
+- Modify sample_code_submission to provide a better model.
 
-- download the public_data and run:
+- Zip the contents of sample_code_submission (without the directory, but with metadata) to create a submission to the challenge.
+
+- Alternatively, to create a sample result submission run:
 
   `python ingestion_program/ingestion.py public_data sample_result_submission ingestion_program sample_code_submission`
 
-then zip the contents of sample_result_submission (without the directory).
+- Zip the contents of sample_result_submission (without the directory).
 
 (2) If you are a challenge organizer and use this starting kit as a template, ensure that:
 
@@ -38,4 +40,4 @@ then zip the contents of sample_result_submission (without the directory).
 
 - IMPORTANT: if you switch between sample data, remove iris_model.pickle from sample_code_submission, otherwise you'll have inconsistent data and models.
 
-- the metric identified by metric.txt in the utilities directory is the metric used both to compute performances in README.ipynb and for the challenge.
+- the metric identified by metric.txt in the utilities directory is the metric used both to compute performances in README.ipynb and for the challenge. To use your own metric, change my_metric.py.

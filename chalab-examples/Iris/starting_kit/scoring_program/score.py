@@ -102,7 +102,7 @@ if __name__ == "__main__":
             solution = read_array(solution_file)
             prediction = read_array(predict_file)
             if (solution.shape != prediction.shape): raise ValueError(
-                "Bad prediction shape {}".format(prediction.shape))
+                "Prediction shape {} does not match Solution shape {}".format(prediction.shape, solution.shape))
 
             try:
                 # Compute the score prescribed by the metric file 
@@ -124,8 +124,7 @@ if __name__ == "__main__":
                 "======= Set %d" % set_num + " (" + basename.capitalize() + "): " + metric_name + "(" + score_name + ")=ERROR =======")
             html_file.write(
                 "======= Set %d" % set_num + " (" + basename.capitalize() + "): " + metric_name + "(" + score_name + ")=ERROR =======\n")
-            print
-            inst
+            print inst
 
         # Write score corresponding to selected task and metric to the output file
         score_file.write(score_name + ": %0.12f\n" % score)

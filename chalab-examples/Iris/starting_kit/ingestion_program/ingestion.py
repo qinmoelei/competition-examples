@@ -74,7 +74,7 @@ max_time = 500
 # (base learners).
 max_cycle = 1 
 max_estimators = float('Inf')
-max_samples = 50000
+max_samples = float('Inf')
 
 # Save your model
 #################
@@ -175,7 +175,8 @@ if __name__=="__main__" and debug_mode<4:
         
         # ======== Creating a data object with data, informations about it
         vprint( verbose,  "========= Reading and converting data ==========")
-        D = DataManager(basename, input_dir, replace_missing=True, filter_features=True, max_samples=max_samples, verbose=verbose)
+        D = DataManager(basename, input_dir, replace_missing=True, filter_features=True, max_samples=max_samples, verbose=verbose, conv_to_num=False)
+        # We do NOT convert automatically on-hot-encoded target values for multi-class classification
         print D
         vprint( verbose,  "[+] Size of uploaded data  %5.2f bytes" % data_io.total_size(D))
         

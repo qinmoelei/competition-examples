@@ -41,6 +41,49 @@ if (os.name == "nt"):
 else:
     filesep = '/'
 
+    
+# ======= Default metrics (can be specified in metric.txt) ========
+    
+def bac_binary(solution, prediction):
+    return bac_metric(solution, prediction, task='binary.classification')
+    
+def bac_multiclass(solution, prediction):
+    return bac_metric(solution, prediction, task='multiclass.classification')
+    
+def bac_multilabel(solution, prediction):
+    return bac_metric(solution, prediction, task='multilabel.classification')
+    
+def auc_binary(solution, prediction):
+    return auc_metric(solution, prediction, task='binary.classification')
+    
+def auc_multilabel(solution, prediction):
+    return auc_metric(solution, prediction, task='multilabel.classification')
+    
+def pac_binary(solution, prediction):
+    return pac_metric(solution, prediction, task='binary.classification')
+    
+def pac_multiclass(solution, prediction):
+    return pac_metric(solution, prediction, task='multiclass.classification')
+    
+def pac_multilabel(solution, prediction):
+    return pac_metric(solution, prediction, task='multilabel.classification')
+    
+def f1_binary(solution, prediction):
+    return f1_metric(solution, prediction, task='binary.classification')
+    
+def f1_multilabel(solution, prediction):
+    return f1_metric(solution, prediction, task='multilabel.classification')
+
+def abs_regression(solution, prediction):
+    return a_metric(solution, prediction, task='regression')
+    
+def r2_regression(solution, prediction):
+    return r2_metric(solution, prediction, task='regression')
+
+
+# ======= END Default metrics (can be specified in metric.txt) ========
+# ======= Do not use other metrics defined below this line ========
+# ======= Define your own custom code in my_metric.py ========
 
 # ========= Useful functions ==============
 
@@ -168,47 +211,7 @@ def mvmean(R, axis=0):
         return np.array(map(average, R))
     else:
         return np.array(map(average, R.transpose()))
-
-    
-# ======= Default metrics ========
-    
-def bac_binary(solution, prediction):
-    return bac_metric(solution, prediction, task='binary.classification')
-    
-def bac_multiclass(solution, prediction):
-    return bac_metric(solution, prediction, task='multiclass.classification')
-    
-def bac_multilabel(solution, prediction):
-    return bac_metric(solution, prediction, task='multilabel.classification')
-    
-def auc_binary(solution, prediction):
-    return auc_metric(solution, prediction, task='binary.classification')
-    
-def auc_multilabel(solution, prediction):
-    return auc_metric(solution, prediction, task='multilabel.classification')
-    
-def pac_binary(solution, prediction):
-    return pac_metric(solution, prediction, task='binary.classification')
-    
-def pac_multiclass(solution, prediction):
-    return pac_metric(solution, prediction, task='multiclass.classification')
-    
-def pac_multilabel(solution, prediction):
-    return pac_metric(solution, prediction, task='multilabel.classification')
-    
-def f1_binary(solution, prediction):
-    return f1_metric(solution, prediction, task='binary.classification')
-    
-def f1_multilabel(solution, prediction):
-    return f1_metric(solution, prediction, task='multilabel.classification')
-
-def abs_regression(solution, prediction):
-    return a_metric(solution, prediction, task='regression')
-    
-def r2_regression(solution, prediction):
-    return r2_metric(solution, prediction, task='regression')
-
-
+        
 # ======= Pre-made metrics ========
 
 ### REGRESSION METRICS (work on raw solution and prediction)
