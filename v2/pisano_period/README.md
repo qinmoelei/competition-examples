@@ -4,9 +4,17 @@ Pisano Period
 This competition is from [Jimmy Keith's weekly code challenges](https://github.com/jimmykodes/code_challenges/tree/master/02_25_pisano_period) at our company
 [CKC](http://ckcollab.com)
 
-Here's the description of the challenge:
+## Solutions
 
-## Pisano Period
+To make a solution, submit a zip with `solution.py` containing this function:
+
+```python
+def pisano_period(divisor):
+   ...
+   return the_pisano_period_of_the_divisor
+```
+
+## What is a Pisano Period?
 
 A Pisano period is the length at which a sequence of the remainders of a given number divided by each number in
 the fibonacci sequence repeats.<sup>[1]</sup>
