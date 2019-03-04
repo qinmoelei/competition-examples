@@ -4,16 +4,6 @@ Pisano Period
 This competition is from [Jimmy Keith's weekly code challenges](https://github.com/jimmykodes/code_challenges/tree/master/02_25_pisano_period) at our company
 [CKC](http://ckcollab.com)
 
-## Solutions
-
-To make a solution, submit a zip with `solution.py` containing this function:
-
-```python
-def pisano_period(divisor):
-   ...
-   return the_pisano_period_of_the_divisor
-```
-
 ## What is a Pisano Period?
 
 A Pisano period is the length at which a sequence of the remainders of a given number divided by each number in
@@ -37,7 +27,33 @@ ___
 to get the next number. `0, 1, 1, 2, 3, 5, 8, 13, etc.` since `1 + 1 = 2, 1 + 2 = 3, 3 + 2 = 5, and so on` </sub>
 
 
-## Adjustments for Codalab
+## Task
+
+Create a function solving the pisano period for some given divisor, using the least code, memory, and CPU as possible!
+
+```python
+assert pisano_period(1) == 0
+assert pisano_period(8) == 12
+assert pisano_period(5) == 20
+assert pisano_period(11) == 10
+assert pisano_period(4) == 6
+assert pisano_period(6) == 24
+assert pisano_period(7) == 16
+```
+
+## Solution
+
+To make a solution, submit a zip with `solution.py` containing this function:
+
+```python
+def pisano_period(divisor):
+   ...
+   return the_pisano_period_of_the_divisor
+```
+
+
+
+## Adjustments from original for Codalab
 
 Added some metrics for CPU, memory, and amount of characters in the code of the applicant.
 
