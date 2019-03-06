@@ -2,11 +2,11 @@ import json
 
 char_count = 0
 
-with open("input/solution.py", "r") as f:
+with open("/app/input/solution.py", "r") as f:
     for c in f.read():
         char_count += 1
 
-scores = json.loads(open("input/ingestion_results.json", "r").read())
+scores = json.loads(open("/app/input/ingestion_results.json", "r").read())
 
 # We should now have ingestion_output["mem"] and ingestion_output["cpu"], add "char_count"
 
