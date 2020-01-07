@@ -169,44 +169,24 @@ def mvmean(R, axis=0):
     else:
         return np.array(map(average, R.transpose()))
 
-    
-# ======= Default metrics ========
-    
-def bac_binary(solution, prediction):
-    return bac_metric(solution, prediction, task='binary.classification')
-    
-def bac_multiclass(solution, prediction):
-    return bac_metric(solution, prediction, task='multiclass.classification')
-    
-def bac_multilabel(solution, prediction):
-    return bac_metric(solution, prediction, task='multilabel.classification')
-    
-def auc_binary(solution, prediction):
-    return auc_metric(solution, prediction, task='binary.classification')
-    
-def auc_multilabel(solution, prediction):
-    return auc_metric(solution, prediction, task='multilabel.classification')
-    
-def pac_binary(solution, prediction):
-    return pac_metric(solution, prediction, task='binary.classification')
-    
-def pac_multiclass(solution, prediction):
-    return pac_metric(solution, prediction, task='multiclass.classification')
-    
-def pac_multilabel(solution, prediction):
-    return pac_metric(solution, prediction, task='multilabel.classification')
-    
-def f1_binary(solution, prediction):
-    return f1_metric(solution, prediction, task='binary.classification')
-    
-def f1_multilabel(solution, prediction):
-    return f1_metric(solution, prediction, task='multilabel.classification')
 
-def abs_regression(solution, prediction):
-    return a_metric(solution, prediction, task='regression')
-    
-def r2_regression(solution, prediction):
-    return r2_metric(solution, prediction, task='regression')
+# ======= Metric used for scoring in the challenge ========
+
+# Mean-square error
+#Example of organizer-provided metric.
+#You can just replace this code by your own.
+#Make sure to indicate the name of the function that you chose as metric function
+#in the file metric.txt. E.g. mse_metric, because this file may contain more 
+#than one function, hence you must specify the name of the function that is your metric.
+
+import numpy as np
+import scipy as sp
+
+def mse_metric(solution, prediction):
+    '''Mean-square error.
+    Works even if the target matrix has more than one column'''
+    mse = np.mean((solution-prediction)**2)
+    return np.mean(mse)
 
 
 # ======= Pre-made metrics ========

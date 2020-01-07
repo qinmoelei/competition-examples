@@ -18,15 +18,13 @@ import os
 from sys import argv
 
 import libscores
-import my_metric
 import yaml
-from libscores import *
+from libscores import ls, filesep, mkdir, read_array, compute_all_scores, write_scores
 
 # Default I/O directories:
-root_dir = "../"
-default_solution_dir = root_dir + "sample_data"
-default_prediction_dir = root_dir + "sample_result_submission"
-default_score_dir = root_dir + "scoring_output"
+root_dir = "/Users/isabelleguyon/Documents/Projects/ParisSaclay/Projects/ChaLab/Examples/iris/"
+default_input_dir = root_dir + "scoring_input_1_2"
+default_output_dir = root_dir + "scoring_output"
 
 # Debug flag 0: no debug, 1: show all scores, 2: also show version amd listing of dir
 debug_mode = 1
@@ -46,43 +44,30 @@ def _HERE(*args):
 def _load_scoring_function():
     with open(_HERE('metric.txt'), 'r') as f:
         metric_name = f.readline().strip()
-        try:
-            score_func = getattr(libscores, metric_name)
-        except:
-            score_func = getattr(my_metric, metric_name)
-        return metric_name, score_func
+        return metric_name, getattr(libscores, metric_name)
+
 
 # =============================== MAIN ========================================
 
 if __name__ == "__main__":
 
     #### INPUT/OUTPUT: Get input and output directory names
-    if len(argv) == 1:  # Use the default data directories if no arguments are provided
-        solution_dir = default_solution_dir
-        prediction_dir = default_prediction_dir
-        score_dir = default_score_dir
-    elif len(argv) == 3: # The current default configuration of Codalab
-        solution_dir = os.path.join(argv[1], 'ref')
-        prediction_dir = os.path.join(argv[1], 'res')
-        score_dir = argv[2]
-    elif len(argv) == 4:
-        solution_dir = argv[1]
-        prediction_dir = argv[2]
-        score_dir = argv[3]
-    else: 
-        swrite('\n*** WRONG NUMBER OF ARGUMENTS ***\n\n')
-        exit(1)
-        
-    # Create the output directory, if it does not already exist and open output files
-    mkdir(score_dir)
-    score_file = open(os.path.join(score_dir, 'scores.txt'), 'wb')
-    html_file = open(os.path.join(score_dir, 'scores.html'), 'wb')
+    if len(argv) == 1:  # Use the default input and output directories if no arguments are provided
+        input_dir = default_input_dir
+        output_dir = default_output_dir
+    else:
+        input_dir = argv[1]
+        output_dir = argv[2]
+        # Create the output directory, if it does not already exist and open output files
+    mkdir(output_dir)
+    score_file = open(os.path.join(output_dir, 'scores.txt'), 'wb')
+    html_file = open(os.path.join(output_dir, 'scores.html'), 'wb')
 
     # Get the metric
     metric_name, scoring_function = _load_scoring_function()
 
     # Get all the solution files from the solution directory
-    solution_names = sorted(ls(os.path.join(solution_dir, '*.solution')))
+    solution_names = sorted(ls(os.path.join(input_dir, 'ref', '*.solution')))
 
     # Loop over files in solution directory and search for predictions with extension .predict having the same basename
     for i, solution_file in enumerate(solution_names):
@@ -92,9 +77,9 @@ if __name__ == "__main__":
         # Extract the dataset name from the file name
         basename = solution_file[-solution_file[::-1].index(filesep):-solution_file[::-1].index('.') - 1]
 
-        if 1==1: #try:
+        try:
             # Get the last prediction from the res subdirectory (must end with '.predict')
-            predict_file = ls(os.path.join(prediction_dir, basename + '*.predict'))[-1]
+            predict_file = ls(os.path.join(input_dir, 'res', basename + '*.predict'))[-1]
             if (predict_file == []): raise IOError('Missing prediction file {}'.format(basename))
             predict_name = predict_file[-predict_file[::-1].index(filesep):-predict_file[::-1].index('.') - 1]
             # Read the solution and prediction values into numpy arrays
@@ -103,26 +88,26 @@ if __name__ == "__main__":
             if (solution.shape != prediction.shape): raise ValueError(
                 "Bad prediction shape {}".format(prediction.shape))
 
-            if 1==1: #try:
+            try:
                 # Compute the score prescribed by the metric file 
                 score = scoring_function(solution, prediction)
                 print(
-                    "======= Set %d" % set_num + " (" + predict_name.capitalize() + "): " + metric_name + "(" + score_name + ")=%0.12f =======" % score)
+                    "======= Set %d" % set_num + " (" + predict_name.capitalize() + "): score(" + score_name + ")=%0.12f =======" % score)
                 html_file.write(
-                    "======= Set %d" % set_num + " (" + predict_name.capitalize() + "): " + metric_name + "(" + score_name + ")=%0.12f =======\n" % score)
-            else: #except:
+                    "======= Set %d" % set_num + " (" + predict_name.capitalize() + "): score(" + score_name + ")=%0.12f =======\n" % score)
+            except:
                 raise Exception('Error in calculation of the specific score of the task')
 
             if debug_mode > 0:
                 scores = compute_all_scores(solution, prediction)
                 write_scores(html_file, scores)
 
-        else: #except Exception as inst:
+        except Exception as inst:
             score = missing_score
             print(
-                "======= Set %d" % set_num + " (" + basename.capitalize() + "): " + metric_name + "(" + score_name + ")=ERROR =======")
+                "======= Set %d" % set_num + " (" + basename.capitalize() + "): score(" + score_name + ")=ERROR =======")
             html_file.write(
-                "======= Set %d" % set_num + " (" + basename.capitalize() + "): " + metric_name + "(" + score_name + ")=ERROR =======\n")
+                "======= Set %d" % set_num + " (" + basename.capitalize() + "): score(" + score_name + ")=ERROR =======\n")
             print
             inst
 
@@ -145,5 +130,7 @@ if __name__ == "__main__":
     if debug_mode > 1:
         swrite('\n*** SCORING PROGRAM: PLATFORM SPECIFICATIONS ***\n\n')
         show_platform()
-        show_io(prediction_dir, score_dir)
+        show_io(input_dir, output_dir)
         show_version(scoring_version)
+
+        # exit(0)
