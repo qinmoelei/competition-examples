@@ -1,0 +1,75 @@
+version: 2
+title: Iris
+description: The well known Iris dataset from Fisher's classic paper (Fisher, 1936).
+image: logo.png
+registration_auto_approve: True  # do not require approval from admin to join the comp
+
+# TODO: old useful parameters
+#admin_names: pavao
+#competition_docker_image: 'codalab/codalab-legacy:py37'
+
+# Documentation web pages
+terms: pages/terms.html
+pages:
+  - title: Overview
+    file: pages/overview.html
+  - title: Data
+    file: pages/data.html
+  - title: Evaluation
+    file: pages/evaluation.html
+
+# Definition of the tasks
+tasks:
+  - index: 0
+    name: Developement Task
+    description: 'Tune models, then test against contained in public test data.'
+    input_data: data/dev_phase/input_data/
+    reference_data: data/dev_phase/reference_data/
+    ingestion_program: ingestion_program/
+    scoring_program: scoring_program/
+  - index: 1
+    name: Final Task
+    description: 'Train models, then test against an unseen set.'
+    input_data: data/final_phase/input_data/
+    reference_data: data/final_phase/reference_data/
+    ingestion_program: ingestion_program/
+    scoring_program: scoring_program/
+
+solutions:
+  - index: 0
+    tasks:
+    - 0
+    - 1
+    path: models/
+
+# There are 2 phases: development phase and final phase
+# Each one is linked to a task
+phases:
+  - name: Development Phase
+    description: 'Development phase: tune your models.'
+    start: 1-1-2020 # Month/Day/Year
+    end: 1-30-2020
+    tasks:
+      - 0
+  - name: Final Phase
+    description: 'Final Phase: test against unseen data.'
+    max_submissions: 1
+    start: 2-1-2020
+    end: 2-28-2020
+    tasks:
+      - 1
+
+# Leaderboard
+leaderboards:
+  - title: Results
+    key: main
+    columns:
+      - title: Prediction score
+        key: accuracy
+        index: 0
+        sorting: desc
+      - title: Duration
+        key: duration
+        index: 1
+        sorting: desc
+
