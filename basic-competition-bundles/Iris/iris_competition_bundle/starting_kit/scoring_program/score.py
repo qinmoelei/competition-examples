@@ -3,15 +3,15 @@
 # Scoring program for the AutoML challenge
 # Isabelle Guyon and Arthur Pesah, ChaLearn, August 2014-November 2016
 
-# ALL INFORMATION, SOFTWARE, DOCUMENTATION, AND DATA ARE PROVIDED "AS-IS". 
+# ALL INFORMATION, SOFTWARE, DOCUMENTATION, AND DATA ARE PROVIDED "AS-IS".
 # ISABELLE GUYON, CHALEARN, AND/OR OTHER ORGANIZERS OR CODE AUTHORS DISCLAIM
 # ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 # WARRANTIES OF MERCHANTABILITY AND FITNESS FOR ANY PARTICULAR PURPOSE, AND THE
-# WARRANTY OF NON-INFRINGEMENT OF ANY THIRD PARTY'S INTELLECTUAL PROPERTY RIGHTS. 
-# IN NO EVENT SHALL ISABELLE GUYON AND/OR OTHER ORGANIZERS BE LIABLE FOR ANY SPECIAL, 
+# WARRANTY OF NON-INFRINGEMENT OF ANY THIRD PARTY'S INTELLECTUAL PROPERTY RIGHTS.
+# IN NO EVENT SHALL ISABELLE GUYON AND/OR OTHER ORGANIZERS BE LIABLE FOR ANY SPECIAL,
 # INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER ARISING OUT OF OR IN
-# CONNECTION WITH THE USE OR PERFORMANCE OF SOFTWARE, DOCUMENTS, MATERIALS, 
-# PUBLICATIONS, OR INFORMATION MADE AVAILABLE FOR THE CHALLENGE. 
+# CONNECTION WITH THE USE OR PERFORMANCE OF SOFTWARE, DOCUMENTS, MATERIALS,
+# PUBLICATIONS, OR INFORMATION MADE AVAILABLE FOR THE CHALLENGE.
 
 # Some libraries and options
 import os
@@ -27,7 +27,7 @@ default_input_dir = root_dir + "scoring_input_1_2"
 default_output_dir = root_dir + "scoring_output"
 
 # Debug flag 0: no debug, 1: show all scores, 2: also show version amd listing of dir
-debug_mode = 1
+debug_mode = 0
 
 # Constant used for a missing score
 missing_score = -0.999999
@@ -60,8 +60,8 @@ if __name__ == "__main__":
         output_dir = argv[2]
         # Create the output directory, if it does not already exist and open output files
     mkdir(output_dir)
-    score_file = open(os.path.join(output_dir, 'scores.txt'), 'wb')
-    html_file = open(os.path.join(output_dir, 'scores.html'), 'wb')
+    score_file = open(os.path.join(output_dir, 'scores.txt'), 'w')
+    html_file = open(os.path.join(output_dir, 'scores.html'), 'w')
 
     # Get the metric
     metric_name, scoring_function = _load_scoring_function()
@@ -86,10 +86,10 @@ if __name__ == "__main__":
             solution = read_array(solution_file)
             prediction = read_array(predict_file)
             if (solution.shape != prediction.shape): raise ValueError(
-                "Bad prediction shape {}".format(prediction.shape))
+                "Bad prediction shape. Prediction shape: {}\nSolution shape:{}".format(prediction.shape, solution.shape))
 
             try:
-                # Compute the score prescribed by the metric file 
+                # Compute the score prescribed by the metric file
                 score = scoring_function(solution, prediction)
                 print(
                     "======= Set %d" % set_num + " (" + predict_name.capitalize() + "): score(" + score_name + ")=%0.12f =======" % score)
@@ -108,8 +108,7 @@ if __name__ == "__main__":
                 "======= Set %d" % set_num + " (" + basename.capitalize() + "): score(" + score_name + ")=ERROR =======")
             html_file.write(
                 "======= Set %d" % set_num + " (" + basename.capitalize() + "): score(" + score_name + ")=ERROR =======\n")
-            print
-            inst
+            print(inst)
 
         # Write score corresponding to selected task and metric to the output file
         score_file.write(score_name + ": %0.12f\n" % score)

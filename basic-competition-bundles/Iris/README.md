@@ -20,4 +20,15 @@ This sample competition allows you to submit either:
 * A pre-trained prediction model.
 * A prediction model that must be trained and tested.
 
-NOTE: we provide the zipped and unzipped competition bundle for convenience. In the competition bundle, subdirectories should be zipped files (e.g scoring _program).
+NOTE: we provide the zipped and unzipped competition bundle for convenience. In the competition bundle, subdirectories should be zipped files (e.g scoring\_program). You can use the `make_competition_bundle.sh` script for that purpose:
+
+```
+cd iris_competition_bundle/utilities
+./make_competition_bundle.sh
+```
+
+You can try your newly created competition by submitting one of those files into it:
+```
+sample_result_submission.zip
+sample_code_submission.zip
+```

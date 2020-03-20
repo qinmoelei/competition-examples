@@ -64,7 +64,7 @@ phases:
   description: 'Final phase: submissions from the previous phase are automatically
     cloned and used to compute the final score. The results on the test set will be
     revealed when the organizers make them available.'
-  start: 2-1-2020
+  start: 2-1-2020 # Never ends
   max_submissions_per_day: 0
   max_submissions: 100
   execution_time_limit_ms: 500
