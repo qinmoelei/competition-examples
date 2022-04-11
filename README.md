@@ -1,23 +1,16 @@
-competition-examples
+Competition Examples
 ====================
 
-This repo contains competition bundle examples for Codalab [Competitions v1.5](http://competitions.codalab.org) and V2 (tba)
+This repository contains competition bundle examples for [CodaLab Competitions](https://codalab.lisn.fr/) and [Codabench](https://www.codabench.org/).
 
+### Folders
 
-* basic-competition-bundles/
-
-Examples of competitions directed to beginning organizers.
+* [basic-competition-bundles/](basic-competition-bundles/): Examples of competitions directed to beginning organizers.
              
+* [developers/](developers/): Older (v1) examples that developer and advanced users can check into and/or update.
 
-* chalab-examples/
-  
-Examples that can be used to test the ChaLab wizard.
+* [v2/](v2/): Codabench examples.
 
-* developers/
+### Tutorial: how to organize a challenge on CodaLab Competitions
 
-Older (v1) examples that developer and advanced users can check into and/or update.
-
-
-* v2/
-
-V2 competition examples
+* [TUTORIAL.md](TUTORIAL.md)
