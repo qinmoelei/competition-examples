@@ -28,12 +28,12 @@ _Add a scheme here._
 
 
 
-### Step-by-step guide
+# Step-by-step guide
 
 
-#### 1. Get started
+### 1. Get started
 
-* Create an account on [codalab.lisn.fr(https://codalab.lisn.fr/).
+* Create an account on [codalab.lisn.fr](https://codalab.lisn.fr/).
 
 * Login to your account.
 
@@ -46,7 +46,7 @@ git clone https://github.com/codalab/competition-examples
 _You can also use Github's web interface._
 
 
-#### 2. Copy and edit a competition template
+### 2. Copy and edit a competition template
 
 The competition bundles for [CodaLab Competitions](https://github.com/codalab/codalab-competitions) can be found in the `basic-competition-bundles/` folder.
 
@@ -86,14 +86,17 @@ ls -1 Compute_pi/compute_pi_competition_bundle/
 * **terms_and_conditions.html**
 
 
-Modify bundle
-change logo
-change title of competition
+Let's edit the bundle.
 
-What is a bundle, etc...
+* Replace `logo.jpg`
+
+* Change title of competition in `competition.yaml`
+
+* Make any changes you like!
 
 
-#### 3. Upload the competition
+
+### 3. Upload the competition
 
 * ZIP the bundle:
 
@@ -102,19 +105,44 @@ cd Compute_pi/compute_pi_competition_bundle/
 ./utilities/make_competition_bundle.sh
 ```
 
-_Warning: ZIP..._
+_Warning: it is recommended to use the script to zip the bundle. If you wish to zip it by hand, be aware that every folder (e.g. scoring program, reference data, ...) needs to be zipped without directory structure, and the whole bundle needs to be zipped without directory structure._
+
 
 * Upload bundle
 
-_Add screenshots_
+Upload the archive you've just created into Codalab as following:
+
+Go to “My Competitions”, then “Competitions I’m Running” and finally “Create Competition”.
+
+![screenshot1](tutorial_images/upload_screenshot_1.png)
+
+Then click on "Upload Competition Bundle".
+
+![screenshot2](tutorial_images/upload_screenshot_2.png)
+
+That’s it! Your competition is ready to receive submissions.
 
 
 * Make sample submission
 
-_Add screenshots_
+To make a submission, go to your competition, click on "Participate", then "Submit / View results", the "Submit".
+
+Try to upload `compute_pi_sample_submission.zip`.
+
+![screenshot3](tutorial_images/submission_screenshot_1.png)
+
+Once your submission is processed, you can access various useful logs:
+
+![screenshot4](tutorial_images/submission_screenshot_2.png)
 
 
-#### 4. Live edits and management of the competition
+* Have a look at the leaderboard
+
+
+
+### 4. Live edits and management of the competition
+
+![screenshot5](tutorial_images/admin_screenshot.png)
 
 * Use editor
 
@@ -131,13 +159,13 @@ _Add screenshots_
 * etc.
 
 
-#### 5. Cleanup. 
+### 5. Cleanup. 
 
 While following this tutorial, you may have created test competitions.
 Please make them private or remove them from the platform.
 
 
-#### To go further
+# To go further
 
 * [CodaLab's Wiki](https://github.com/codalab/codalab-competitions/wiki)
 * [Google Group](https://groups.google.com/forum/#!forum/codalab-competitions)

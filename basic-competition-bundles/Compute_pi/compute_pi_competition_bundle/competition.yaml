@@ -4,6 +4,7 @@ title: Example Competition
 description: This is a competition to test the competition bundle system. It should be able to create a competition from this bundle.
 image: logo.jpg
 has_registration: True
+force_submission_to_leaderboard: True
 end_date: 
 html: 
     overview: overview.html
