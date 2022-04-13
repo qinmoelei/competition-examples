@@ -1,5 +1,7 @@
 # How to organize a challenge on CodaLab Competitions
 
+![logo](tutorial_images/podium.png)
+
 Organizing a challenge allows you to crowd-source the most difficult scientific or industrial problems in machine learning (and not limited to ML!).
 As a teacher, you can use challenges as practical projects and track the results of the students in a fun way, using the leaderboard.
 Even as a student, organizing a competition is an excellent way to learn data science.
@@ -7,6 +9,8 @@ This short hands-on tutorial will give you everything you need to understand how
 
 
 ### Why Codalab?
+
+![logo](tutorial_images/codalab_logo.png)
 
 Codalab is **free** and **[open-source](https://github.com/codalab/codalab-competitions)**!
 This means that you can deploy your own instance of the platform, or use the main deployed instance, [codalab.lisn.fr](https://codalab.lisn.fr/), and create your own challenge as early as today.
@@ -22,7 +26,7 @@ There are three (non-exclusive) types of users:
 
 * Administrators, who manage the platform,
 * **Organizers, who manage competitions,** <-- the focus of this tutorial
-* Participant, who try to win the competitions.
+* Participant, who try to win competitions.
 
 
 
@@ -41,12 +45,12 @@ There are three (non-exclusive) types of users:
 git clone https://github.com/codalab/competition-examples
 ```
 
-_You can also use Github's web interface._
+_You can also use Github's web interface to clone the repository._
 
 
 ### 2. Copy and edit a competition template
 
-The competition bundles for [CodaLab Competitions](https://github.com/codalab/codalab-competitions) can be found in the `basic-competition-bundles/` folder.
+The competition bundles for [CodaLab Competitions](https://github.com/codalab/codalab-competitions) can be found in the [basic-competition-bundles/](basic-competition-bundles/) folder.
 
 ```
 cd competition-examples/basic-competition-bundles/
@@ -96,7 +100,7 @@ Let's edit the bundle.
 
 ### 3. Upload the competition
 
-* ZIP the bundle:
+* **ZIP bundle**:
 
 ```
 cd Compute_pi/compute_pi_competition_bundle/
@@ -106,7 +110,7 @@ cd Compute_pi/compute_pi_competition_bundle/
 _Warning: it is recommended to use the script to zip the bundle. If you wish to zip it by hand, be aware that every folder (e.g. scoring program, reference data, ...) needs to be zipped without directory structure, and the whole bundle needs to be zipped without directory structure._
 
 
-* Upload bundle
+* **Upload bundle**
 
 Upload the archive you've just created into Codalab as following:
 
@@ -121,7 +125,7 @@ Then click on "Upload Competition Bundle".
 That’s it! Your competition is ready to receive submissions.
 
 
-* Make sample submission
+* **Make sample submission**
 
 To make a submission, go to your competition, click on "Participate", then "Submit / View results", the "Submit".
 
@@ -175,7 +179,7 @@ You can make your competition public, either from the "Competitions I'm Running"
 
 * **Modify programs or dataset**
 
-To edit a program (e.g. scoring program, ingestion program), or to edit the dataset, you first need to upload the new version as a zip file in the "My Datasets" page.
+To edit a program (e.g. scoring program, ingestion program), or to edit the dataset, you first need to upload the new version as a zip file in the "My Datasets" page, as following:
 
 ![screenshot](tutorial_images/datasets_screenshot.png)
 
