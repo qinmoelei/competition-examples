@@ -103,8 +103,8 @@ Let's edit the bundle.
 * **ZIP bundle**:
 
 ```
-cd Compute_pi/compute_pi_competition_bundle/
-./utilities/make_competition_bundle.sh
+cd Compute_pi/compute_pi_competition_bundle/utilities/
+./make_competition_bundle.sh
 ```
 
 _Warning: it is recommended to use the script to zip the bundle. If you wish to zip it by hand, be aware that every folder (e.g. scoring program, reference data, ...) needs to be zipped without directory structure, and the whole bundle needs to be zipped without directory structure._
