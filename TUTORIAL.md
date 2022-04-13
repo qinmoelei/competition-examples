@@ -12,7 +12,7 @@ This short hands-on tutorial will give you everything you need to understand how
 
 ![logo](tutorial_images/codalab_logo.png)
 
-Codalab is **free** and **[open-source](https://github.com/codalab/codalab-competitions)**!
+CodaLab is **free** and **[open-source](https://github.com/codalab/codalab-competitions)**!
 This means that you can deploy your own instance of the platform, or use the main deployed instance, [codalab.lisn.fr](https://codalab.lisn.fr/), and create your own challenge as early as today.
 Codalab puts an emphasis on science and each year hundreds of challenges take place on it, pushing the limits in many areas: physics, medicine, computer vision, natural language processing or even machine learning itself. 
 Its flexibility allows to tackle a wide variety of tasks!
