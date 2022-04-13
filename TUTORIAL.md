@@ -188,7 +188,7 @@ Once it's uploaded, you can **go to the editor** and select it in the desired fi
 _Note: When uploading the program or dataset, select the right "type", or you won't be able to select it from the editor._
 
 
-### 5. Cleanup. 
+### 5. Cleanup
 
 While following this tutorial, you may have created test competitions.
 Please make them private or remove them from the platform.
