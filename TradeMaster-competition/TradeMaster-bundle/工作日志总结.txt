@@ -1,0 +1,10 @@
+目前codalab机制总结 
+根据不同phase准备输出不同的数据 数据处理问题
+目前trian和valid已经准备完毕 现在开始处理test 处理test的几个小问题： 由于数据特征中有zd开头的数据 由于是以batch的形式提交给
+参赛者 可以通过观测下一时刻的zd值了解当前的股市波动情况 因此采取以下两种措施： 
+1.数据特征的掩盖 即把特征名称命名为feature 1，2，3...
+2.在test集上不给连续的时间段 即以30个timestamp为跳跃给状态 但是对应的reward computation还是以转天的收益率为准
+目前inputdata已经处理完毕 现在进行hidden data的结果隐藏
+submission流程 
+完成evaluate的函数构建，目前打算直接提交动作（结果会先检查下 是否所有元素都大于0以及和为1） 我们通过private_data以及对应的
+动作输入进行reward进行计算 最后进行提交（参考yellow world）
