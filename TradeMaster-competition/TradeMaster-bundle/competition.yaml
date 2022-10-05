@@ -18,28 +18,9 @@ phases:
         start_date: 2022-10-30
         max_submissions: 100
         is_scoring_only: False
-        scoring_program: program.zip
-        reference_data: reference.zip
-        public_data: dataset.zip
-        starting_kit: submission.zip
-    2:
-        phasenumber: 2
-        label: "Feed-back"
-        start_date: 2022-12-15
-        max_submissions: 3
-        is_scoring_only: False
-        scoring_program: program.zip
-        reference_data: reference.zip
-        input_data: dataset.zip
-    3:
-        phasenumber: 3
-        label: "Final test"
-        start_date: 2022-12-30
-        max_submissions: 3
-        is_scoring_only: False
-        scoring_program: program.zip
-        reference_data: reference.zip
-        input_data: dataset.zip
+        scoring_program: scoring_program.zip
+        public_data: dataset_public.zip
+        ingestion_program: ingestion_program.zip
 
 leaderboard:
     leaderboards:
@@ -47,7 +28,7 @@ leaderboard:
             label: Results
             rank: 1
     columns:
-        Difference:
+        Average_log_return:
             leaderboard: *RESULTS
-            label: Difference
+            label: Average_log_return
             numeric_format: 6
