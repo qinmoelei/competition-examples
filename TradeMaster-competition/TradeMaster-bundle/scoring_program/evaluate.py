@@ -86,5 +86,6 @@ if __name__ == "__main__":
     return_score_1=check_action_score(action_score_1)
     return_score_2=check_action_score(action_score_2)
     average_score=(return_score_1+return_score_2)/2
-    
+    print("the current score is {}".format(average_score))
+    html_file.write("the current score is {}".format(average_score))
         
