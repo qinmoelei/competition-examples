@@ -2,7 +2,7 @@
 ---
 title: Webank-TradeMaster Cup
 description: This competition is aimed for proving the potential of machine learning in the area of qunatitive trading. 
-image: picture/Logo.png
+image: logo.png
 has_registration: True
 force_submission_to_leaderboard: True
 end_date: 
@@ -21,6 +21,7 @@ phases:
         scoring_program: scoring_program.zip
         public_data: dataset_public.zip
         ingestion_program: ingestion_program.zip
+        reference_data: reference.zip
 
 leaderboard:
     leaderboards:
